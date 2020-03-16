@@ -3,18 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31FBC816BAD4FC4A9833D51D /* Pods_NewsList_MRT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37B716398661FB5D7A6E0A4 /* Pods_NewsList_MRT.framework */; };
 		DEDABEF1241FB27100177B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDABEF0241FB27100177B93 /* AppDelegate.swift */; };
 		DEDABEF5241FB27100177B93 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDABEF4241FB27100177B93 /* SplashViewController.swift */; };
 		DEDABEF8241FB27100177B93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDABEF6241FB27100177B93 /* Main.storyboard */; };
 		DEDABEFA241FB27400177B93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDABEF9241FB27400177B93 /* Assets.xcassets */; };
 		DEDABEFD241FB27400177B93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDABEFB241FB27400177B93 /* LaunchScreen.storyboard */; };
+		DEDABF05241FB95A00177B93 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDABF04241FB95A00177B93 /* ListViewController.swift */; };
+		DEDABF07241FB9C900177B93 /* NewsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDABF06241FB9C900177B93 /* NewsListCell.swift */; };
+		DEDABF0C241FB9FE00177B93 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDABF0B241FB9FE00177B93 /* ListPresenter.swift */; };
+		DEDABF0E241FBA0900177B93 /* ListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDABF0D241FBA0900177B93 /* ListContract.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A57CD374468F313E68B5EB38 /* Pods-NewsList_MRT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsList_MRT.release.xcconfig"; path = "Target Support Files/Pods-NewsList_MRT/Pods-NewsList_MRT.release.xcconfig"; sourceTree = "<group>"; };
+		B5E5F5B20AAC4E5AD13977B5 /* Pods-NewsList_MRT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsList_MRT.debug.xcconfig"; path = "Target Support Files/Pods-NewsList_MRT/Pods-NewsList_MRT.debug.xcconfig"; sourceTree = "<group>"; };
 		DEDABEED241FB27100177B93 /* NewsList_MRT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsList_MRT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDABEF0241FB27100177B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDABEF4241FB27100177B93 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,11 @@
 		DEDABEF9241FB27400177B93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDABEFC241FB27400177B93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEDABEFE241FB27400177B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEDABF04241FB95A00177B93 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		DEDABF06241FB9C900177B93 /* NewsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListCell.swift; sourceTree = "<group>"; };
+		DEDABF0B241FB9FE00177B93 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		DEDABF0D241FBA0900177B93 /* ListContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContract.swift; sourceTree = "<group>"; };
+		F37B716398661FB5D7A6E0A4 /* Pods_NewsList_MRT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsList_MRT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31FBC816BAD4FC4A9833D51D /* Pods_NewsList_MRT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FDCF0DB5266370CE7642381 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F37B716398661FB5D7A6E0A4 /* Pods_NewsList_MRT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86D77D283D53133A2F5AFD39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5E5F5B20AAC4E5AD13977B5 /* Pods-NewsList_MRT.debug.xcconfig */,
+				A57CD374468F313E68B5EB38 /* Pods-NewsList_MRT.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DEDABEE4241FB27100177B93 = {
 			isa = PBXGroup;
 			children = (
 				DEDABEEF241FB27100177B93 /* NewsList_MRT */,
 				DEDABEEE241FB27100177B93 /* Products */,
+				86D77D283D53133A2F5AFD39 /* Pods */,
+				2FDCF0DB5266370CE7642381 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +86,42 @@
 		DEDABEEF241FB27100177B93 /* NewsList_MRT */ = {
 			isa = PBXGroup;
 			children = (
+				DEDABF09241FB9E500177B93 /* Splash */,
+				DEDABF08241FB9DE00177B93 /* NewsList */,
 				DEDABEF0241FB27100177B93 /* AppDelegate.swift */,
-				DEDABEF4241FB27100177B93 /* SplashViewController.swift */,
 				DEDABEF6241FB27100177B93 /* Main.storyboard */,
 				DEDABEF9241FB27400177B93 /* Assets.xcassets */,
 				DEDABEFB241FB27400177B93 /* LaunchScreen.storyboard */,
 				DEDABEFE241FB27400177B93 /* Info.plist */,
 			);
 			path = NewsList_MRT;
+			sourceTree = "<group>";
+		};
+		DEDABF08241FB9DE00177B93 /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				DEDABF0A241FB9ED00177B93 /* Cell */,
+				DEDABF0D241FBA0900177B93 /* ListContract.swift */,
+				DEDABF04241FB95A00177B93 /* ListViewController.swift */,
+				DEDABF0B241FB9FE00177B93 /* ListPresenter.swift */,
+			);
+			path = NewsList;
+			sourceTree = "<group>";
+		};
+		DEDABF09241FB9E500177B93 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				DEDABEF4241FB27100177B93 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		DEDABF0A241FB9ED00177B93 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DEDABF06241FB9C900177B93 /* NewsListCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEDABF01241FB27400177B93 /* Build configuration list for PBXNativeTarget "NewsList_MRT" */;
 			buildPhases = (
+				DE7005775A2F04E83181BCDE /* [CP] Check Pods Manifest.lock */,
 				DEDABEE9241FB27100177B93 /* Sources */,
 				DEDABEEA241FB27100177B93 /* Frameworks */,
 				DEDABEEB241FB27100177B93 /* Resources */,
+				E5CA6A12FB37EA624B96B296 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +192,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DE7005775A2F04E83181BCDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewsList_MRT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5CA6A12FB37EA624B96B296 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NewsList_MRT/Pods-NewsList_MRT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NewsList_MRT/Pods-NewsList_MRT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewsList_MRT/Pods-NewsList_MRT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DEDABEE9241FB27100177B93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDABF0C241FB9FE00177B93 /* ListPresenter.swift in Sources */,
 				DEDABEF5241FB27100177B93 /* SplashViewController.swift in Sources */,
 				DEDABEF1241FB27100177B93 /* AppDelegate.swift in Sources */,
+				DEDABF07241FB9C900177B93 /* NewsListCell.swift in Sources */,
+				DEDABF05241FB95A00177B93 /* ListViewController.swift in Sources */,
+				DEDABF0E241FBA0900177B93 /* ListContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +386,7 @@
 		};
 		DEDABF02241FB27400177B93 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5E5F5B20AAC4E5AD13977B5 /* Pods-NewsList_MRT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +406,7 @@
 		};
 		DEDABF03241FB27400177B93 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A57CD374468F313E68B5EB38 /* Pods-NewsList_MRT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
