@@ -8,10 +8,15 @@
 
 import Foundation
 
+struct NewsFeed {
+    var title: String?
+    var link: String?
+}
+
 protocol ListPresenterProtocol {
-    
+    func requestRSSFeed()
 }
 
 protocol ListViewProtocol {
-    
+    func appendNewsFeeds(list: [NewsFeed])
 }

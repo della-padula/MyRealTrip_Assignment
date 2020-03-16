@@ -152,6 +152,9 @@ ddd</string>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GHP-eS-56Z">
                                                     <rect key="frame" x="110" y="73" width="294" height="27"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="GX8-7k-NIa"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tVh-R9-8R9">
                                                         <size key="itemSize" width="84" height="27"/>
                                                         <size key="estimatedItemSize" width="84" height="27"/>
@@ -213,7 +216,6 @@ ddd</string>
                                                 <constraint firstItem="Hix-Co-Euk" firstAttribute="leading" secondItem="ULE-4i-7PX" secondAttribute="leading" constant="10" id="YvV-io-bPY"/>
                                                 <constraint firstItem="fZI-p5-SXq" firstAttribute="top" secondItem="Hix-Co-Euk" secondAttribute="top" id="Yzf-VL-MP6"/>
                                                 <constraint firstItem="3ML-gh-RGt" firstAttribute="top" secondItem="fZI-p5-SXq" secondAttribute="bottom" constant="6" id="dm6-vU-8Sh"/>
-                                                <constraint firstItem="GHP-eS-56Z" firstAttribute="top" secondItem="3ML-gh-RGt" secondAttribute="bottom" constant="2.5" id="iU9-LL-JVI"/>
                                                 <constraint firstItem="GHP-eS-56Z" firstAttribute="bottom" secondItem="Hix-Co-Euk" secondAttribute="bottom" id="rmd-Wa-RHY"/>
                                                 <constraint firstItem="GHP-eS-56Z" firstAttribute="leading" secondItem="3ML-gh-RGt" secondAttribute="leading" id="sdv-06-Y6F"/>
                                                 <constraint firstItem="Hix-Co-Euk" firstAttribute="centerY" secondItem="ULE-4i-7PX" secondAttribute="centerY" id="xgp-Bh-Jbm"/>

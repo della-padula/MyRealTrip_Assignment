@@ -7,6 +7,7 @@ target 'NewsList_MRT' do
 
   # Pods for NewsList_MRT
   pod 'Kanna'
+  pod 'Kingfisher'
   pod 'Alamofire'
-  pod 'SwiftyJSON'
+  pod 'SwiftyXMLParser'
 end
