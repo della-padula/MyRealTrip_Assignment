@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 struct NewsFeed {
+    var index: Int
     var title: String?
     var link: String?
+    var image: UIImage?
+    var desc: String?
+    var keywords: [String]?
 }
 
 protocol ListPresenterProtocol {

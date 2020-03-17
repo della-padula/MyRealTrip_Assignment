@@ -15,8 +15,12 @@ class ListViewController: UIViewController, ListViewProtocol {
     
     @IBOutlet weak var newsListView: UITableView!
     
+    private var refreshControl = UIRefreshControl()
+    
     private var presenter: ListPresenterProtocol!
     private var newsFeedList = [NewsFeed]()
+    private var isUpdateComplete: Bool = false
+    private var page = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +30,29 @@ class ListViewController: UIViewController, ListViewProtocol {
         self.newsListView.delegate = self
         self.newsListView.dataSource = self
         
+        self.newsListView.separatorInset = .zero
+        self.newsListView.tableFooterView = UIView()
+        
+        if #available(iOS 10.0, *) {
+            self.newsListView.refreshControl = refreshControl
+        } else { self.newsListView.addSubview(refreshControl) }
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        self.newsFeedList.removeAll()
+        self.presenter.requestRSSFeed()
+    }
+    
+    @objc func refresh() {
+        self.page = 0
+        self.isUpdateComplete = false
         self.newsFeedList.removeAll()
         self.presenter.requestRSSFeed()
     }
     
     func appendNewsFeeds(list: [NewsFeed]) {
         self.newsFeedList.append(contentsOf: list)
+        self.refreshControl.endRefreshing()
+        self.isUpdateComplete = true
         self.newsListView.reloadData()
     }
     
@@ -44,9 +65,11 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsListCell") as! NewsListCell
+        print(indexPath.row)
         
-        cell.item = self.newsFeedList[indexPath.row]
-        cell.keywordList = ["Test0000001", "Test002", "Test3"]
+        if self.isUpdateComplete {
+            cell.item = self.newsFeedList[indexPath.row]
+        }
         
         return cell
     }

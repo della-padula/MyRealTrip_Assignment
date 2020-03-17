@@ -43,6 +43,13 @@ class NewsListCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     var item: NewsFeed? {
         didSet {
             self.titleLabel.text = item?.title ?? ""
+//            self.keywordList = ["keyword1", "key2", "33"]
+            self.thumbnailView.image = nil
+            self.summaryLabel.text = ""
+//            self.keywordList = item?.keywords
+//            self.thumbnailView.image = item?.image
+//            self.summaryLabel.text = item?.desc
+            
             self.parseImageDescription()
         }
     }
@@ -59,50 +66,70 @@ class NewsListCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         if let url = item?.link {
             AF.request(url).responseString(encoding: .utf8) { response in
                 switch(response.result) {
-                    case .success(_):
-                        if let data = response.value {
-                            do {
-                                let doc = try HTML(html: data, encoding: .utf8)
-                                var imageURL: String = ""
-                                var descriptionText: String = ""
-                                
-                                self.keyPairList.removeAll()
-                                
-                                for product in doc.css("meta[property='og:image']") {
-                                    imageURL = product["content"] ?? ""
-                                }
-                                
-                                for product in doc.css("meta[property='og:description']") {
-                                    descriptionText = product["content"] ?? ""
-                                }
-                                
-                                let keywordList = descriptionText.split(separator: " ")
-
-                                for keyword in keywordList {
-                                    self.addKeywordWithCount(keyword: String(keyword))
-                                }
-                                
-                                // Keyword Iteration
-                                self.keyPairList.sort { $0.count > $1.count }
-                                print("-----")
-                                for keypair in self.keyPairList {
-                                    print("keyword : \(keypair.keyword) / count : \(keypair.count)")
-                                }
-                                
-                                
-                                if let url = URL(string: imageURL) {
-                                    self.thumbnailView.kf.setImage(with: url)
-                                }
-                                self.summaryLabel.text = descriptionText
-                            } catch let error {
-                                print("Error : \(error)")
+                case .success(_):
+                    if let data = response.value {
+                        do {
+                            let doc = try HTML(html: data, encoding: .utf8)
+                            var imageURL: String = ""
+                            var descriptionText: String = ""
+                            
+                            self.keyPairList.removeAll()
+                            
+                            for product in doc.css("meta[property='og:image']") {
+                                imageURL = product["content"] ?? ""
                             }
+                            
+                            for product in doc.css("meta[property='og:description']") {
+                                descriptionText = product["content"] ?? ""
+                            }
+                            
+                            let keywordList = descriptionText.split(separator: " ")
+                            
+                            for keyword in keywordList {
+                                self.addKeywordWithCount(keyword: String(keyword))
+                            }
+                            
+                            // Keyword Iteration
+//                            self.keyPairList.sort { $0.count > $1.count }
+                            print("-----")
+                            for keypair in self.keyPairList {
+                                print("keyword : \(keypair.keyword) / count : \(keypair.count)")
+                            }
+                            
+//                            let time = DispatchTime.now() + 0.5
+//                            DispatchQueue.main.asyncAfter(deadline: time) {
+                                self.keywordList = Array(self.keyPairList[0..<3].map { $0.keyword })
+//                            }
+                            
+                            
+                            if let url = URL(string: imageURL) {
+                                KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+                                    self.thumbnailView.image = self.resizeImage(image: image!, newWidth: 40.0)
+                                })
+//                                                                    self.thumbnailView.kf.setImage(with: url)
+                            }
+                            self.summaryLabel.text = descriptionText
+                        } catch let error {
+                            print("Error : \(error)")
                         }
-                    case .failure(let error):
-                        print(error)
                     }
+                case .failure(let error):
+                    print(error)
                 }
+            }
         }
+    }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
     }
     
     func addKeywordWithCount(keyword: String) {
